@@ -20,7 +20,13 @@ def detect_keywords(text: str):
 
     matched = []
 
-    for keyword in KEYWORDS:
+    all_keywords = (
+        KEYWORDS["english"]
+        + KEYWORDS["hindi"]
+        + KEYWORDS["gujarati"]
+    )
+
+    for keyword in all_keywords:
         if keyword.lower() in text:
             matched.append(keyword)
 

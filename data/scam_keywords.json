@@ -1,5 +1,37 @@
 {
-  "english": [],
-  "hindi": [],
-  "gujarati": []
+  "english": [
+    "otp",
+    "verify",
+    "account blocked",
+    "blocked",
+    "click",
+    "urgent",
+    "bank",
+    "kyc",
+    "prize",
+    "winner",
+    "lottery",
+    "claim",
+    "reward",
+    "login",
+    "password",
+    "upi",
+    "payment",
+    "refund",
+    "gift"
+  ],
+  "hindi": [
+    "ओटीपी",
+    "सत्यापित",
+    "खाता",
+    "इनाम",
+    "लिंक"
+  ],
+  "gujarati": [
+    "ઓટીપી",
+    "ચકાસો",
+    "એકાઉન્ટ",
+    "ઇનામ",
+    "લિંક"
+  ]
 }

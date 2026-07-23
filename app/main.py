@@ -14,6 +14,10 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.config.settings import settings
 from app.database.database import init_db
 
+from app.api.scan import router as scan_router
+# from app.api.history import router as history_router
+# from app.api.auth import router as auth_router
+# from app.api.report import router as report_router
 
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
@@ -58,11 +62,11 @@ def create_app() -> FastAPI:
     # Middleware will be registered here as modules are built
     # app.add_middleware(LoggingMiddleware)
 
-    # API routers will be registered here as modules are built
-    # app.include_router(scan_router, prefix="/scan", tags=["Scan"])
-    # app.include_router(history_router, prefix="/history", tags=["History"])
-    # app.include_router(auth_router, prefix="/auth", tags=["Auth"])
-    # app.include_router(report_router, prefix="/report", tags=["Report"])
+    # Register API routers
+    app.include_router(scan_router)
+    # app.include_router(history_router)
+    # app.include_router(auth_router)
+    # app.include_router(report_router)
 
     @app.get("/", tags=["Health"])
     async def root() -> dict[str, str]:

@@ -1,7 +1,20 @@
-"""Language detection service (to be implemented)."""
-def detect_language(text: str) -> str:
-    """
-    Temporary language detector.
-    """
+from langdetect import detect
 
-    return "en"
+
+def detect_language(text: str) -> str:
+    try:
+        lang = detect(text)
+
+        if lang == "en":
+            return "English"
+
+        if lang == "hi":
+            return "Hindi"
+
+        if lang == "gu":
+            return "Gujarati"
+
+        return "Unknown"
+
+    except Exception:
+        return "Unknown"
