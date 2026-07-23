@@ -1,0 +1,17 @@
+# Virtual environment
+venv/
+.venv/
+
+# Environment variables
+.env
+
+# Database
+data/*.db
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# VS Code / Cursor
+.vscode/
+.cursor/
