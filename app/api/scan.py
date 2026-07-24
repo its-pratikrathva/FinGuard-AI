@@ -12,6 +12,9 @@ from app.services.url_extractor import extract_urls
 from app.services.ai_detector import AIDetector
 from app.services.gemini_service import analyze_message
 
+from app.dependencies.auth import get_current_user
+from app.models.user import User
+
 router = APIRouter(
     prefix="/scan",
     tags=["Scan"],
@@ -24,7 +27,9 @@ ai_detector = AIDetector()
 def scan_message(
     request: ScanRequest,
     db: Session = Depends(get_db),
+    current_user: User = Depends(get_current_user),
 ):
+    
     # Extract keywords
     keywords = detect_keywords(request.message)
 
@@ -52,6 +57,7 @@ def scan_message(
     advice = "Avoid clicking unknown links. Never share OTPs or banking credentials."
     # Save history
     history = ScanHistory(
+        user_id=current_user.id,
         message=request.message,
         language="English",
         risk_score=risk_score,
