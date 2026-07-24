@@ -19,6 +19,8 @@ from app.api.history import router as history_router
 from app.api.auth import router as auth_router
 from app.api.report import router as report_router
 
+from app.api.dashboard import router as dashboard_router
+
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
     """
@@ -65,6 +67,7 @@ def create_app() -> FastAPI:
     # Register API routers
     app.include_router(scan_router)
     app.include_router(history_router)
+    app.include_router(dashboard_router)
     app.include_router(auth_router)
     app.include_router(report_router)
 
